@@ -12,5 +12,7 @@
   status = auto
 [init]
   defaultBranch = main
+[push]
+  autoSetupRemote = true
 [pull]
 	rebase = true
