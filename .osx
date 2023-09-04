@@ -169,6 +169,9 @@ chflags nohidden ~/Library
 # Set dock to left side of screen
 defaults write com.apple.dock "orientation" -string "left"
 
+# Set dock to autohide
+defaults write com.apple.dock "autohide" -bool "false"
+
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 30
 
