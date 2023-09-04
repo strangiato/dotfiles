@@ -124,6 +124,9 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
 
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
@@ -170,7 +173,7 @@ chflags nohidden ~/Library
 defaults write com.apple.dock "orientation" -string "left"
 
 # Set dock to autohide
-defaults write com.apple.dock "autohide" -bool "true"
+defaults write com.apple.dock "autohide" -bool true
 
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 30
@@ -260,12 +263,19 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
+# iTerm                                                                    #
+###############################################################################
+
+# Disable prompt on quit
+defaults write com.googlecode.iterm2 PromptOnQuit -bool true
+
+###############################################################################
 # Kill/restart affected applications                                          #
 ###############################################################################
 
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
-  for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Terminal"; do
+  for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Terminal" "iTerm"; do
     killall "${app}" > /dev/null 2>&1
   done
 fi
