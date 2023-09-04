@@ -130,8 +130,8 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
-# Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# Display full POSIX path as Finder window title - Disabled
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
@@ -210,6 +210,23 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 # defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
+# Menu Bar & Control Center                                                            #
+###############################################################################
+
+# Enable sound icon in menu bar
+defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 331
+
+# Enable bluetooth icon in menu bar
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position Sound" -int 363
+
+# Enable timemachine icon in the menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
+defaults write com.apple.systemuiserver "NSStatusItem Preferred Position com.apple.menuextra.TimeMachine" -int 435
+defaults write com.apple.systemuiserver "menuExtras" -array "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
+
+###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
 
@@ -275,7 +292,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool true
 
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
-  for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Terminal" "iTerm"; do
+  for app in "cfprefsd" "Dock" "Finder" "ControlCenter" "Mail" "SystemUIServer" "Terminal" "iTerm"; do
     killall "${app}" > /dev/null 2>&1
   done
 fi
