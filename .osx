@@ -170,7 +170,7 @@ chflags nohidden ~/Library
 defaults write com.apple.dock "orientation" -string "left"
 
 # Set dock to autohide
-defaults write com.apple.dock "autohide" -bool "false"
+defaults write com.apple.dock "autohide" -bool "true"
 
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 30
