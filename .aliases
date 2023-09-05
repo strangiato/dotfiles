@@ -1,2 +1,7 @@
+# color commands
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias grep='grep --color=auto'
+
 # long listing
 alias ll='ls -laFh'
