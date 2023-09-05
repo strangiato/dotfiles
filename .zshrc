@@ -1,6 +1,9 @@
 # # Enable plugins.
 # plugins=(git brew history oc history-substring-search)
 
+# Load tab complete
+autoload -Uz compinit && compinit
+
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]
 then
