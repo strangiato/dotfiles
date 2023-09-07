@@ -15,3 +15,6 @@ eval "$(starship init zsh)"
 
 # Load auto suggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Pipenv configuration
+export PIPENV_VENV_IN_PROJECT=1
