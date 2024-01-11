@@ -1,6 +1,9 @@
 # # Enable plugins.
 # plugins=(git brew history oc history-substring-search)
 
+# Add brew packages to path
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Load tab complete
 autoload -Uz compinit && compinit
 
