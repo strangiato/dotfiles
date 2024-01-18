@@ -3,6 +3,8 @@
 
 # Add brew packages to path
 export PATH="/opt/homebrew/bin:$PATH"
+# add make to path
+PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
 # Load tab complete
 autoload -Uz compinit && compinit
