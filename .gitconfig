@@ -1,6 +1,6 @@
 [user]
   name = Trevor Royer
-  email = trevorroyer@gmail.com
+  email = troyer@redhat.com
 [core]
   editor = vi
   excludesfile = ~/.gitignore
@@ -19,3 +19,5 @@
   autoSetupRemote = true
 [pull]
   rebase = true
+[commit]
+	gpgsign = true
