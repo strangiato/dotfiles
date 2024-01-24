@@ -1,6 +1,7 @@
 [user]
   name = Trevor Royer
   email = troyer@redhat.com
+	signingkey = 7D2F2DE1
 [core]
   editor = vi
   excludesfile = ~/.gitignore
@@ -21,3 +22,5 @@
   rebase = true
 [commit]
 	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
