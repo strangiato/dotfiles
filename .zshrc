@@ -6,8 +6,21 @@ export PATH="/opt/homebrew/bin:$PATH"
 # add make to path
 PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
+# setup gpg signing
+export GPG_TTY=$(tty)
+
 # Load tab complete
-autoload -Uz compinit && compinit
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+
+# Load oc autocomplete
+if [ $commands[oc] ]; then
+  source <(oc completion zsh)
+  compdef _oc oc
+fi
 
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]
