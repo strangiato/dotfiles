@@ -22,6 +22,9 @@ if [ $commands[oc] ]; then
   compdef _oc oc
 fi
 
+# Load add krew to path for oc plugins
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.aliases ]
 then
