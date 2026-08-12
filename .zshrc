@@ -31,6 +31,11 @@ then
   source ~/.aliases
 fi
 
+# Load secrets file (if present), never checked into git
+if [ -f ~/.zsh_secrets ]; then
+    source ~/.zsh_secrets
+fi
+
 # Load the starship terminal theme
 eval "$(starship init zsh)"
 
@@ -44,3 +49,7 @@ eval "$(pyenv init -)"
 
 # Pipenv configuration
 export PIPENV_VENV_IN_PROJECT=1
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=us-east5
+export ANTHROPIC_VERTEX_PROJECT_ID=infosec-analysis
+export PATH=$HOME/.npm-global/bin:$PATH
