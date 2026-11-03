@@ -49,3 +49,5 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Pipenv configuration
 export PIPENV_VENV_IN_PROJECT=1
 
+# configure uv to use corporate certs
+export UV_SYSTEM_CERTS=true

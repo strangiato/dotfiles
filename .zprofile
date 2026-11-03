@@ -9,3 +9,7 @@ PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
 # Load add krew to path for oc/kubectl plugins
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# python path configs
+export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.local/share/uv/python/bin:$PATH"
