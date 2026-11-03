@@ -46,7 +46,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Automatically quit printer app once the print jobs complete
-# defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # Restart automatically if the computer freezes
 if [[ "$RUN_AS_ROOT" = true ]]; then
@@ -85,7 +85,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Disable auto-correct
-# defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
 # Screen                                                                      #
@@ -123,9 +123,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
-
-# Finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool true
 
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
@@ -168,12 +165,6 @@ chflags nohidden ~/Library
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
-
-# Set dock to left side of screen
-defaults write com.apple.dock "orientation" -string "left"
-
-# Set dock to autohide
-defaults write com.apple.dock "autohide" -bool true
 
 # Set the icon size of Dock items
 defaults write com.apple.dock tilesize -int 30
@@ -218,11 +209,11 @@ defaults write com.apple.dock "show-recents" -bool false
 
 # Enable sound icon in menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
-defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 331
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position Sound" -int 363
 
 # Enable bluetooth icon in menu bar
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
-defaults write com.apple.controlcenter "NSStatusItem Preferred Position Sound" -int 363
+defaults write com.apple.controlcenter "NSStatusItem Preferred Position Bluetooth" -int 331
 
 # Enable timemachine icon in the menu bar
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
@@ -283,11 +274,11 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 # defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 
 ###############################################################################
-# iTerm                                                                    #
+# App Store                                                                   #
 ###############################################################################
 
-# Disable prompt on quit
-defaults write com.googlecode.iterm2 PromptOnQuit -bool true
+# Disable in-app rating requests from apps downloaded from the App Store.
+defaults write com.apple.appstore InAppReviewEnabled -int 0
 
 ###############################################################################
 # Kill/restart affected applications                                          #
@@ -295,7 +286,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool true
 
 # Restart affected applications if `--no-restart` flag is not present.
 if [[ ! ($* == *--no-restart*) ]]; then
-  for app in "cfprefsd" "Dock" "Finder" "ControlCenter" "Mail" "SystemUIServer" "Terminal" "iTerm"; do
+  for app in "cfprefsd" "Dock" "Finder" "Mail" "SystemUIServer" "Terminal"; do
     killall "${app}" > /dev/null 2>&1
   done
 fi
